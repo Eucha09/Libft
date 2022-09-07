@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eujeong <eujeong@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/13 13:40:18 by eujeong           #+#    #+#             */
+/*   Updated: 2022/07/13 13:50:52 by eujeong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static char	**ft_allfree(char **str, int size)
 {
@@ -14,11 +26,11 @@ static char	**ft_allfree(char **str, int size)
 	return (NULL);
 }
 
-static int	ft_word_count(char *str, char c)
+static int	ft_word_count(char const *str, char c)
 {
-	int	i;
-	int	cnt;
-	int	flag;
+	size_t	i;
+	int		cnt;
+	int		flag;
 
 	cnt = 0;
 	flag = 0;
@@ -36,18 +48,18 @@ static int	ft_word_count(char *str, char c)
 	return (cnt);
 }
 
-static char	*ft_getword(char *str, char c)
+static char	*ft_getword(char const *str, char c)
 {
-	int		i;
-	int		word_len;
+	size_t	i;
+	size_t	word_len;
 	char	*word;
 
 	word_len = 0;
 	while (str[word_len] != '\0' && str[word_len] != c)
 		word_len++;
 	word = (char *)malloc(sizeof(char) * (word_len + 1));
-	if (word == 0)
-		return (0);
+	if (word == NULL)
+		return (NULL);
 	word[word_len] = '\0';
 	i = 0;
 	while (i < word_len)
@@ -63,7 +75,7 @@ char	**ft_split(char const *s, char c)
 	int		word_cnt;
 	int		cnt;
 	char	**words;
-	int		i;
+	size_t	i;
 
 	if (s == NULL)
 		return (NULL);
@@ -80,7 +92,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		words[cnt] = ft_getword(&s[i], c);
 		if (words[cnt] == NULL)
-			reutnr (ft_allfree(s, word_cnt));
+			return (ft_allfree(words, word_cnt));
 		i += ft_strlen(words[cnt++]);
 	}
 	return (words);

@@ -1,24 +1,35 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eujeong <eujeong@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/13 13:32:38 by eujeong           #+#    #+#             */
+/*   Updated: 2022/07/13 13:38:18 by eujeong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char* ft_strtrim(char const* s1, char const* set)
+#include "libft.h"
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char*	ret;
-	int 	del[256];
+	char	*ret;
+	int		check[256];
 	size_t	i;
 	size_t	j;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	ft_memset(del, 0, sizeof(del));
+	ft_memset(check, 0, sizeof(check));
 	i = 0;
 	while (set != NULL && set[i])
-		del[set[i++]] = 1;
+		check[(unsigned char)set[i++]] = 1;
 	i = 0;
 	j = ft_strlen(s1) - 1;
-	while (i <= j && del[s1[i]])
+	while (i <= j && check[(unsigned char)s1[i]])
 		i++;
-	while (i < j && del[s1[j]])
+	while (i < j && check[(unsigned char)s1[j]])
 		j--;
 	ret = (char *)malloc(sizeof(char) * (j - i + 2));
 	if (ret == NULL)
