@@ -328,3 +328,170 @@ C 라이브러리 만들기
 
 </div>
 </details>
+
+### **Additional functions**
+
+<details>
+<summary>ft_substr</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_substr|
+|-|-|
+|**프로토타입**|char *ft_substr(char const *s, unsigned int start, size_t len);|
+|**매개변수**|#1. 부분 문자열(substring)을 생성할 원본 문자열<br>#2. 부분 문자열의 맨 처음 인덱스<br>#3. 부분 문자열의 최대 길이|
+|**반환값**|부분 문자열. 할당 실패시, NULL|
+|**설명**|동적할당 후, 원본 문자열 s로부터 부분 문자열을 생성하여 반환해주는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_strjoin</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_strjoin|
+|-|-|
+|**프로토타입**|char *ft_strjoin(char const *s1, char const *s2);|
+|**매개변수**|#1. 접두 문자열(prefix string)<br>#2. 접미 문자열(suffix string)|
+|**반환값**|새로운 문자열. 할당 실패 시, NULL|
+|**설명**|동적할당 후, 문자열 s1과 s2를 이어붙인 새로운 문자열을 생성하여 반환해주는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_strtrim</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_strtrim|
+|-|-|
+|**프로토타입**|char *ft_strtrim(char const *s1, char const *set);|
+|**매개변수**|#1. 양 쪽을 잘라낼 원본 문자열<br>#2. 제거될 문자들의 집합|
+|**반환값**|문자가 제거된 문자열. 할당 실패 시, NULL|
+|**설명**|동적할당 후, s1의 양 쪽 끝에서 'set'에 지정된 문자들이 제거된 문자열 사본을 반환해주는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_split</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_split|
+|-|-|
+|**프로토타입**|char **ft_split(char const *s, char c);|
+|**매개변수**|#1. 분할할 문자열<br>#2. 구분자(delimiter)|
+|**반환값**|split을 통해 분할된 문자열의 배열. 할당 실패 시, NULL|
+|**설명**|동적할당 후, 구분자 c를 기준으로 문자열 s를 분할하여 그 결과를 담은 새로운 문자열 배열을 반환해주는 함수. 문자열 배열의 끝은 NULL 포인터로 끝남.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_itoa</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_itoa|
+|-|-|
+|**프로토타입**|char *ft_itoa(int n);|
+|**매개변수**|#1. 변환할 정수|
+|**반환값**|정수를 표현하는 문자열. 할당 실패 시, NULL|
+|**설명**|동적할당 후, 인자로 받은 정수를 나타내는 문자열을 반환해주는 함수.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_strmapi</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_strmapi|
+|-|-|
+|**프로토타입**|char *ft_strmapi(char const *s, char (*f)(unsigned int, char));|
+|**매개변수**|#1. 함수를 적용할 문자열<br>#2. 문자열의 각 문자에 적용할 함수|
+|**반환값**|원본 문자열에서 함수 f를 성공적으로 적용하여 생성된 결과 문자열. 할당 실패 시, NULL|
+|**설명**|문자열 s의 각 문자를 순회하며 함수 f를 적용하고, 해당 문자의 인덱스를 함수 f의 첫 번째 인자로 사용하여 각 문자에 함수가 적용된 새로운 문자열을 생성하는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_striteri</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_striteri|
+|-|-|
+|**프로토타입**|void ft_striteri(char *s, void (*f)(unsigned int, char*));|
+|**매개변수**|#1. 함수를 적용할 문자열<br>#2. 문자열의 각 문자에 적용할 함수|
+|**반환값**|없음.|
+|**설명**|문자열 s의 각 문자를 순회하며 함수 f를 적용하는 함수. 해당 문자의 인덱스를 함수 f의 첫 번째 인자로 사용하고, 각 문자의 주소값이 함수 f의 두 번째 인자로 사용된다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_putchar_fd</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_putchar_fd|
+|-|-|
+|**프로토타입**|void ft_putchar_fd(char c, int fd);|
+|**매개변수**|#1. 출력할 문자<br>#2. 값이 쓰여질 파일 식별자(file descriptor)|
+|**반환값**|없음.|
+|**설명**|제공받은 파일 식별자에 문자 c를 출력하는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_putstr_fd</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_putstr_fd|
+|-|-|
+|**프로토타입**|void ft_putstr_fd(char *s, int fd);|
+|**매개변수**|#1. 출력할 문자열<br>#2. 값이 쓰여질 파일 식별자(file descriptor)|
+|**반환값**|없음.|
+|**설명**|제공받은 파일 식별자에 문자열 s를 출력하는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_putendl_fd</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_putendl_fd|
+|-|-|
+|**프로토타입**|void ft_putendl_fd(char *s, int fd);|
+|**매개변수**|#1. 출력할 문자열<br>#2. 값이 쓰여질 파일 식별자(file descriptor)|
+|**반환값**|없음.|
+|**설명**|제공받은 파일 식별자에 문자열 s를 출력하고, 개행을 출력하는 함수|
+
+</div>
+</details>
+
+<details>
+<summary>ft_putnbr_fd</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_putnbr_fd|
+|-|-|
+|**프로토타입**|void ft_putnbr_fd(int n, int fd);|
+|**매개변수**|#1. 출력할 정수<br>#2. 값이 쓰여질 파일 식별자(file descriptor)|
+|**반환값**|없음.|
+|**설명**|제공받은 파일 식별자에 정수 n을 출력하는 함수|
+
+</div>
+</details>
+
+### **list functions**
+
+```c
+typedef struct s_list
+{
+    void          *content;
+    struct s_list *next;
+}              t_list;
+```
+
