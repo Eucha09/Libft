@@ -495,3 +495,128 @@ typedef struct s_list
 }              t_list;
 ```
 
+<details>
+<summary>ft_lstnew</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstnew|
+|-|-|
+|**프로토타입**|t_list *ft_lstnew(void *content);|
+|**매개변수**|#1. 새로운 요소에 들어갈 content|
+|**반환값**|새로운 요소(element)|
+|**설명**|메모리를 동적할당하고 새로운 요소를 반환한다. 요소 내의 변수 content는 인자로 받아온 content로 초기화되고, next는 NULL로 초기화된다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstadd_front</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstadd_front|
+|-|-|
+|**프로토타입**|void ft_lstadd_front(t_list **lst, t_list *new);|
+|**매개변수**|#1. 리스트의 맨 앞에 위치한 요소<br>#2. 리스트에 추가할 요소|
+|**반환값**|없음.|
+|**설명**|요소 new를 리스트 맨 앞에 추가한다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstsize</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstsize|
+|-|-|
+|**프로토타입**|int ft_lstsize(t_list *lst);|
+|**매개변수**|#1. 리스트의 맨 앞에 위치한 요소|
+|**반환값**|리스트의 길이|
+|**설명**|리스트에 포함된 요소의 개수를 반환한다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstlast</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstlast|
+|-|-|
+|**프로토타입**|t_list *ft_lstlast(t_list *lst);|
+|**매개변수**|#1. 리스트의 맨 앞에 위치한 요소|
+|**반환값**|리스트의 맨 마지막 요소|
+|**설명**|리스트의 맨 마지막에 위치한 요소를 반환한다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstadd_back</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstadd_back|
+|-|-|
+|**프로토타입**|void ft_lstadd_back(t_list **lst, t_list *new);|
+|**매개변수**|#1. 리스트의 맨 앞에 위치한 요소의 포인터<br>#2. 리스트의 맨 끝에 추가할 요소|
+|**반환값**|없음.|
+|**설명**|요소 new를 리스트의 맨 뒤에 추가한다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstdelone</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstdelone|
+|-|-|
+|**프로토타입**|void ft_lstdelone(t_list *lst, void (*del)(void *));|
+|**매개변수**|#1. 삭제할 요소<br>#2. 요소의 content 삭제에 사용되는 함수 포인터|
+|**반환값**|없음.|
+|**설명**|첫 번째 인자값으로 받은 요소의 content를 두 번째 인자로 받은 함수 포인터를 이용해 해제하고, 요소 자체의 메모리를 해제한다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstclear</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstclear|
+|-|-|
+|**프로토타입**|void ft_lstclear(t_list **lst, void (*del)(void *));|
+|**매개변수**|#1. 삭제할 요소의 포인터<br>#2. 요소의 content 삭제에 사용되는 함수 포인터|
+|**반환값**|없음.|
+|**설명**|인자값으로 받은 요소와 그 뒤에 따라오는 리스트의 모든 요소들을 삭제하고 해제한다. 마지막으로, 리스트의 포인터는 NULL로 설정된다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstiter</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstiter|
+|-|-|
+|**프로토타입**|void ft_lstiter(t_list *lst, void (*f)(void *));|
+|**매개변수**|#1. 리스트상의 요소<br>#2. 리스트 내에서 반복 적용될 함수 포인터|
+|**반환값**|없음.|
+|**설명**|리스트 lst를 순회하며, 리스트에 포함된 모든 요소들의 content에 함수 f를 반복적으로 적용시킨다.|
+
+</div>
+</details>
+
+<details>
+<summary>ft_lstmap</summary>
+<div markdown="1">       
+
+|**함수 이름**|ft_lstmap|
+|-|-|
+|**프로토타입**|t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));|
+|**매개변수**|#1. 리스트상의 요소<br>#2. 리스트 내에서 반복 적용될 함수 포인터<br>#3. 필요할 경우, 요소의 content를 삭제하는 데에 사용되는 함수|
+|**반환값**|새로운 리스트. 할달 실패 시, NULL|
+|**설명**|리스트 lst의 요소들을 순회하며 각 요소의 content에 함수 f를 연속적으로 적용시킨다. 또한 함수 f를 적용시킨 결과물들을 content로 담은 새로운 리스트를 생성하고 반환한다. del 함수는 필요 시 각 요소의 content를 삭제하는 데 사용된다.|
+
+</div>
+</details>
